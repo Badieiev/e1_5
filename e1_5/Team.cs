@@ -9,6 +9,10 @@ namespace e1_5
     class Team
     {
         public string NameTeam { get; set; }
+        public Team(string nameTeam)
+        {
+            NameTeam = nameTeam;
+        }
         List<Player> playees = new List<Player>();
 
         public void AddPlayee(Player p)

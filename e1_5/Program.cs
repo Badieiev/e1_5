@@ -88,22 +88,22 @@ namespace e1_5
         static void Main(string[] args)
         {
 
-            Team Dnipro = new Team();
-            Dnipro.AddPlayee(new Player("V", 29));
-            Dnipro.AddPlayee(new Player("S", 28));
-            Dnipro.AddPlayee(new Player("X", 27));
-            Dnipro.AddPlayee(new Player("Z", 26));
+            Team dnipro = new Team("Dnipro");
+            dnipro.AddPlayee(new Player("V", 29));
+            dnipro.AddPlayee(new Player("S", 28));
+            dnipro.AddPlayee(new Player("X", 27));
+            dnipro.AddPlayee(new Player("Z", 26));
 
-            Team Zoria = new Team();
-            Zoria.AddPlayee(new Player("V", 29));
-            Zoria.AddPlayee(new Player("S", 28));
-            Zoria.AddPlayee(new Player("X", 27));
-            Zoria.AddPlayee(new Player("Z", 26));
+            Team zoria = new Team("Zoria");
+            zoria.AddPlayee(new Player("V", 29));
+            zoria.AddPlayee(new Player("S", 28));
+            zoria.AddPlayee(new Player("X", 27));
+            zoria.AddPlayee(new Player("Z", 26));
 
-            Game game = new Game(Dnipro, Zoria);
-            game.Сomparison2Teams(Dnipro, Zoria);
+            Game game = new Game(dnipro, zoria);
+            game.Сomparison2Teams(dnipro, zoria);
+            
             Console.ReadKey();
-
         }
     }
 }

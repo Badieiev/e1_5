@@ -19,11 +19,11 @@ namespace e1_5
 
         public void Сomparison2Teams(Team a, Team b)
         {
-            if (a.SumMastery / b.SumMastery >= a.SumMastery / 10)
+            if (a.GetAllMastery() - b.GetAllMastery() >= a.GetAllMastery() / 10)
             {
                 Console.WriteLine("Team {0} win", a.NameTeam);
             }
-            if (b.SumMastery / a.SumMastery >= b.SumMastery / 10)
+            else if (b.GetAllMastery() - a.GetAllMastery() >= b.GetAllMastery() / 10)
             {
                 Console.WriteLine("Team {0} win", b.NameTeam);
             }
