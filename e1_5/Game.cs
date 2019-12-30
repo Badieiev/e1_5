@@ -8,13 +8,13 @@ namespace e1_5
 {
     class Game
     {
-        Team Dnipro;
-        Team Zoria;
+        Team dnipro;
+        Team zoria;
 
         public Game(Team a, Team b)
         {
-            Dnipro = a;
-            Zoria = b;
+            dnipro = a;
+            zoria = b;
         }
 
         public void Сomparison2Teams(Team a, Team b)

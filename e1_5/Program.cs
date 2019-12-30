@@ -88,21 +88,30 @@ namespace e1_5
         static void Main(string[] args)
         {
 
-            Team dnipro = new Team("Dnipro");
+            Team dnipro = new Team("Dnipro", new Coach("c1"));
             dnipro.AddPlayee(new Player("V", 29));
-            dnipro.AddPlayee(new Player("S", 28));
+            dnipro.AddPlayee(new Player("S", 35));
             dnipro.AddPlayee(new Player("X", 27));
             dnipro.AddPlayee(new Player("Z", 26));
 
-            Team zoria = new Team("Zoria");
-            zoria.AddPlayee(new Player("V", 29));
-            zoria.AddPlayee(new Player("S", 28));
-            zoria.AddPlayee(new Player("X", 27));
-            zoria.AddPlayee(new Player("Z", 26));
+            Team zoria = new Team("Zoria", new Coach("c2"));
+            zoria.AddPlayee(new Player("K", 30));
+            zoria.AddPlayee(new Player("J", 31));
+            zoria.AddPlayee(new Player("H", 23));
+            zoria.AddPlayee(new Player("G", 33));
 
             Game game = new Game(dnipro, zoria);
+            Console.WriteLine("Game result:");
             game.Сomparison2Teams(dnipro, zoria);
-            
+            Console.WriteLine("List playees 1 team:");
+            dnipro.ShowAllNamePlayees();
+            Console.WriteLine("List playees 1 team whose age 30+");
+            dnipro.ShowAll30AgePlayees();
+            Console.WriteLine("List playees 2 team:");
+            zoria.ShowAllNamePlayees();
+            Console.WriteLine("List playees 2 team whose age 30+");
+            zoria.ShowAll30AgePlayees();
+
             Console.ReadKey();
         }
     }
