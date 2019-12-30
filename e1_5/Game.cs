@@ -8,28 +8,46 @@ namespace e1_5
 {
     class Game
     {
-        Team dnipro;
-        Team zoria;
+        Team team1;
+        Team team2;
+        Judge judge;
 
-        public Game(Team a, Team b)
+        public Game(Team a, Team b, Judge j)
         {
-            dnipro = a;
-            zoria = b;
+            team1 = a;
+            team2 = b;
+            judge = j;
         }
 
         public void Сomparison2Teams(Team a, Team b)
         {
-            if (a.GetAllMastery() - b.GetAllMastery() >= a.GetAllMastery() / 10)
+            if (judge.Preferences == 1)
             {
-                Console.WriteLine("Team {0} win", a.NameTeam);
+                Compare2TeamsByMastery(a,b, 1.1);
             }
-            else if (b.GetAllMastery() - a.GetAllMastery() >= b.GetAllMastery() / 10)
+            else if (judge.Preferences == 2)
             {
-                Console.WriteLine("Team {0} win", b.NameTeam);
+                Compare2TeamsByMastery(b,a, 1.1);
             }
             else
             {
-                Console.WriteLine("Drove");
+                Compare2TeamsByMastery(a, b, 1);
+            }
+        }
+
+        private void Compare2TeamsByMastery(Team a, Team b, double x)
+        {
+            if ((a.GetAllMastery() * x) - b.GetAllMastery() >= (a.GetAllMastery() * x) / 10)
+            {
+                Console.WriteLine("Team {0} win", a.Name);
+            }
+            else if (b.GetAllMastery() - (a.GetAllMastery() * x) >= b.GetAllMastery() / 10)
+            {
+                Console.WriteLine("Team {0} win", b.Name);
+            }
+            else
+            {
+                Console.WriteLine("Draw");
             }
         }
     }

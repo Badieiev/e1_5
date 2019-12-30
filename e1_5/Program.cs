@@ -89,28 +89,28 @@ namespace e1_5
         {
 
             Team dnipro = new Team("Dnipro", new Coach("c1"));
-            dnipro.AddPlayee(new Player("V", 29));
-            dnipro.AddPlayee(new Player("S", 35));
-            dnipro.AddPlayee(new Player("X", 27));
-            dnipro.AddPlayee(new Player("Z", 26));
+            dnipro.AddPlayer(new Player("V", 29));
+            dnipro.AddPlayer(new Player("S", 35));
+            dnipro.AddPlayer(new Player("X", 27));
+            dnipro.AddPlayer(new Player("Z", 26));
 
             Team zoria = new Team("Zoria", new Coach("c2"));
-            zoria.AddPlayee(new Player("K", 30));
-            zoria.AddPlayee(new Player("J", 31));
-            zoria.AddPlayee(new Player("H", 23));
-            zoria.AddPlayee(new Player("G", 33));
+            zoria.AddPlayer(new Player("K", 30));
+            zoria.AddPlayer(new Player("J", 31));
+            zoria.AddPlayer(new Player("H", 23));
+            zoria.AddPlayer(new Player("G", 33));
 
-            Game game = new Game(dnipro, zoria);
+            Game game = new Game(dnipro, zoria, new Judge("Ivan", 1));
             Console.WriteLine("Game result:");
             game.Сomparison2Teams(dnipro, zoria);
             Console.WriteLine("List playees 1 team:");
-            dnipro.ShowAllNamePlayees();
+            dnipro.ShowAllNamePlayers();
             Console.WriteLine("List playees 1 team whose age 30+");
-            dnipro.ShowAll30AgePlayees();
+            dnipro.ShowAll30AgePlayers();
             Console.WriteLine("List playees 2 team:");
-            zoria.ShowAllNamePlayees();
+            zoria.ShowAllNamePlayers();
             Console.WriteLine("List playees 2 team whose age 30+");
-            zoria.ShowAll30AgePlayees();
+            zoria.ShowAll30AgePlayers();
 
             Console.ReadKey();
         }

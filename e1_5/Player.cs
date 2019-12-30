@@ -8,15 +8,15 @@ namespace e1_5
 {
     class Player
     {
-        public string NamePlayer { get; set; }
-        public int AgePlayer { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
 
+        //создать класс Random с generic методом RandomNumber
         static Random random = new Random();
         int getRandomMastery;
         public int GetRandomMastery
         {
             get { return getRandomMastery; }
-            set { getRandomMastery = value; }
         }
 
         public static int GetRandomNumber(int min, int max)
@@ -26,8 +26,8 @@ namespace e1_5
 
         public Player(string name, int age)
         {
-            NamePlayer = name;
-            AgePlayer = age;
+            Name = name;
+            Age = age;
             this.getRandomMastery = GetRandomNumber(1, 100);
         }
     }

@@ -8,57 +8,52 @@ namespace e1_5
 {
     class Team
     {
-        public string NameTeam { get; set; }
+        public string Name { get; set; }
         Coach coach;
-        public Team(string nameTeam, Coach c)
+        public Team(string name, Coach c)
         {
-            NameTeam = nameTeam;
+            Name = name;
             coach = c;
         }
-        List<Player> playees = new List<Player>();
+        List<Player> players = new List<Player>();
 
-        public void AddPlayee(Player p)
+        public void AddPlayer(Player p)
         {
-            playees.Add(p);
+            players.Add(p);
         }
 
-        double sumMastery;
-        public double SumMastery
-        {
-            get { return sumMastery; }
-            set { this.sumMastery = GetAllMastery(); }
-        }
         public double GetAllMastery()
         {
-            foreach (var playee in playees)
+            double sumMastery = 0.0;
+            foreach (var player in players)
             {
-                sumMastery += playee.GetRandomMastery;
+                sumMastery += player.GetRandomMastery;
             }
             return sumMastery * coach.GetRandomLucky;
         }
 
         //- вывести список всех игроков по алфавиту(использовать LINQ)
-        public void ShowAllNamePlayees()
+        public void ShowAllNamePlayers()
         {
-            var result = from playee in playees
-                         orderby playee.NamePlayer
-                         select playee;
+            var result = from player in players
+                         orderby player.Name
+                         select player;
             foreach (var person in result)
             {
-                Console.WriteLine(person.NamePlayer);
+                Console.WriteLine(person.Name);
             }
         }
 
         //- вывести список всех игроков старше 30 лет по убыванию уровня их мастерства(использовать LINQ)
-        public void ShowAll30AgePlayees()
+        public void ShowAll30AgePlayers()
         {
-            var result = from playee in playees
-                         orderby playee.GetRandomMastery
-                         where playee.AgePlayer > 30
-                         select playee;
+            var result = from player in players
+                         orderby player.GetRandomMastery
+                         where player.Age > 30
+                         select player;
             foreach (var person in result)
             {
-                Console.WriteLine(person.NamePlayer);
+                Console.WriteLine(person.Name);
             }
         }
     }
